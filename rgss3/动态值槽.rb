@@ -53,7 +53,7 @@ module Taroxd::RollGauge
   def update
     super
     if (@gauge_roll_count += 1) >= gauge_roll_interval
-      roll_all_gauge if update_gauge_transitions
+      roll_all_gauge if update_gauge_transitions && visible
       @gauge_roll_count = 0
     end
   end
